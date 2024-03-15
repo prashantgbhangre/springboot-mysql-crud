@@ -14,4 +14,6 @@ public interface StudentService {
     public ResponseEntity createStudent(StudentEntity StudentEntity) throws URISyntaxException;
     public ResponseEntity updateStudent(StudentEntity StudentEntity);
     public ResponseEntity deleteStudent(Long id);
+
+    public List<StudentEntity> getStudentByStatus(String status);
 }

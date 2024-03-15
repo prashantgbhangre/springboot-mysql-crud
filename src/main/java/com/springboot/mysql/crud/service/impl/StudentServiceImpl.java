@@ -47,4 +47,9 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
+    @Override
+    public List<StudentEntity> getStudentByStatus(String status) {
+        return studentRepository.getStudentByStatus(status);
+    }
 }
