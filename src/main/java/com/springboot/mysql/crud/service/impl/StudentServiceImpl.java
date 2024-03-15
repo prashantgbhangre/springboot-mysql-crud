@@ -25,7 +25,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<StudentEntity> getAllStudent() throws SpringBootMysqlCrudException {
         List<StudentEntity> studentEntityList = studentRepository.findAll();
-        if (studentEntityList == null) {
+        if (studentEntityList == null || studentEntityList.size() == 0) {
             throw new SpringBootMysqlCrudException("Data not found", HttpStatus.NOT_FOUND);
         }
         return studentEntityList;
@@ -87,7 +87,7 @@ public class StudentServiceImpl implements StudentService {
             throw new SpringBootMysqlCrudException("Invalid status : " + status, HttpStatus.NOT_FOUND);
         }
         List<StudentEntity> studentEntityList = studentRepository.getStudentByStatus(status);
-        if (studentEntityList == null) {
+        if (studentEntityList == null || studentEntityList.size() == 0) {
             throw new SpringBootMysqlCrudException("Data not found : " + status, HttpStatus.NOT_FOUND);
         }
         return studentEntityList;
